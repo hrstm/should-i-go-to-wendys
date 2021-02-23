@@ -1,0 +1,12 @@
+/* Intersection Observer Code */
+
+.about {
+  opacity: 0;
+  transform: translateY(5%);
+  transition: opacity 200ms ease-in, transform 300ms ease-in;
+}
+
+.about.appear {
+  opacity: 1;
+  transform: translateY(0);
+}

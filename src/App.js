@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Stars from './static/spaceFlight.mp4'
+import Wendys from './components/Wendys'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* VIDEO */}
+			<video 
+				autoPlay
+				loop
+				muted
+				style={{
+					position: 'absolute',
+					objectFit: 'cover',
+					top: 0,  
+					left: 0,
+					height: '225vh', 
+					width: '100%',
+					zIndex: -1000
+				}}
+			>
+				<source src={Stars} type='video/mp4' />
+			</video>
+
+      {/* <Navbar/> */}
+      <Wendys />
+      
     </div>
   );
 }
