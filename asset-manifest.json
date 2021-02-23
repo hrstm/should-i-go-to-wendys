@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Should-I-Go-To-Wendys/static/css/main.abdab0c0.chunk.css",
+    "main.js": "/Should-I-Go-To-Wendys/static/js/main.3814943a.chunk.js",
+    "main.js.map": "/Should-I-Go-To-Wendys/static/js/main.3814943a.chunk.js.map",
+    "runtime-main.js": "/Should-I-Go-To-Wendys/static/js/runtime-main.e524c0f7.js",
+    "runtime-main.js.map": "/Should-I-Go-To-Wendys/static/js/runtime-main.e524c0f7.js.map",
+    "static/js/2.76fcb328.chunk.js": "/Should-I-Go-To-Wendys/static/js/2.76fcb328.chunk.js",
+    "static/js/2.76fcb328.chunk.js.map": "/Should-I-Go-To-Wendys/static/js/2.76fcb328.chunk.js.map",
+    "index.html": "/Should-I-Go-To-Wendys/index.html",
+    "static/css/main.abdab0c0.chunk.css.map": "/Should-I-Go-To-Wendys/static/css/main.abdab0c0.chunk.css.map",
+    "static/js/2.76fcb328.chunk.js.LICENSE.txt": "/Should-I-Go-To-Wendys/static/js/2.76fcb328.chunk.js.LICENSE.txt",
+    "static/media/burger.4a366cb7.png": "/Should-I-Go-To-Wendys/static/media/burger.4a366cb7.png",
+    "static/media/carrot.01c7de22.png": "/Should-I-Go-To-Wendys/static/media/carrot.01c7de22.png",
+    "static/media/questionMark.d6215713.png": "/Should-I-Go-To-Wendys/static/media/questionMark.d6215713.png",
+    "static/media/spaceFlight.076bf11e.mp4": "/Should-I-Go-To-Wendys/static/media/spaceFlight.076bf11e.mp4",
+    "static/media/wendysLogoWhite.daf3d53b.png": "/Should-I-Go-To-Wendys/static/media/wendysLogoWhite.daf3d53b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e524c0f7.js",
+    "static/js/2.76fcb328.chunk.js",
+    "static/css/main.abdab0c0.chunk.css",
+    "static/js/main.3814943a.chunk.js"
+  ]
+}
