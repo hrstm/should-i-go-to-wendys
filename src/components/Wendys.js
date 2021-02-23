@@ -30,12 +30,12 @@ export default function Wendys() {
 			color: 'white',
 
 			[theme.breakpoints.down('md')]: {
-        fontSize: 80
-      },
+				fontSize: 80
+			},
 
-			[theme.breakpoints.down('xs')]: {
-        fontSize: 80
-      },
+			[theme.breakpoints.down(376)]: {
+        		fontSize:75
+      		},
 		},
 
 		titleImage: {
@@ -43,12 +43,12 @@ export default function Wendys() {
 			height: 'auto',
 
 			[theme.breakpoints.down('md')]: {
-        width: 260
-      },		
+				width: 260
+			},		
 			
 			[theme.breakpoints.down('xs')]: {
-        width: 200
-      },
+				width: 200
+			},
 		},
 
 		contentContainer: {
@@ -90,20 +90,37 @@ export default function Wendys() {
 		},
 
 		fateMessage: {
-			marginTop: 10,
+			marginTop: 25,
 			marginBottom: 20,
 			fontWeight: 'bold', 
 			fontFamily: 'Amatic SC',
-			fontSize: 65
+			fontSize: 65,
+
+			[theme.breakpoints.down(415)]: {
+				fontSize: 50
+			},
+
+			[theme.breakpoints.down(376)]: {
+				fontSize: 55
+			},
 		},
 
 		loading: {
-			marginTop: 10,
+			marginTop: 30,
 			marginBottom: 20,
 			color: '#7FE5F0', 
 			fontWeight: 'bold', 
 			fontFamily: 'Amatic SC',
-			fontSize: 65
+			fontSize: 65,
+
+
+			[theme.breakpoints.down(415)]: {
+				fontSize: 55
+			},
+
+			[theme.breakpoints.down(376)]: {
+				fontSize: 40
+			},
 		},
 
 		submitButton: {
@@ -114,7 +131,12 @@ export default function Wendys() {
 			fontSize: 40,
 			background: 'rgba(0,0,0,0.6)',
 			padding: 15,
-			marginBottom: 20
+			marginTop: 10,
+			marginBottom: 15,
+
+			[theme.breakpoints.down(376)]: {
+        		fontSize: 30
+      		},
 		},
 
 		// aboutContainer : {
@@ -232,7 +254,7 @@ export default function Wendys() {
 			const myContent = document.querySelector(".about")
 			const options = {
 				root: null,
-				threshold: 0.5
+				threshold: 0.4
 			}
 			const textObserver = new IntersectionObserver( 
 				function(entries, textObserver) {
@@ -769,7 +791,7 @@ export default function Wendys() {
 				>
 					<p>
 						Eating at a Wendy’s fast food restaurant can either be the best or worst choice of your entire life.
-						But when you get hungry, rash and detrimental decisions are prone to be made.
+						But when you're hungry at 2AM and all respectable restaurants are closed, rash and detrimental decisions are prone to be made.
 						What if there was a way for the universe to answer the question of whether or not you should eat at a Wendy's?
 						Well now there is.
 					</p>
@@ -790,9 +812,9 @@ export default function Wendys() {
 					</p>
 
 					<p>
-						We then perform 3 dice rolls, with each roll giving you a fate score for going to Wendy's. A positive
+						We will then perform 3 dice rolls, with each roll giving you a fate score for going to Wendy's. A positive
 						fate score is represented by a 🍔, while a negative fate score is represented by a 🥕.
-						These scores are then calculated to determine your final fate for 
+						These collective scores are then calculated to determine your final fate for 
 						going to Wendy's.
 					</p>
 				</div>
