@@ -2,250 +2,19 @@ import React, {useState, useEffect, useRef} from 'react'
 import axios from 'axios'
 import './Wendys.css'
 
-import { makeStyles, Button, Grid, CircularProgress, Link } from '@material-ui/core'
+import { Button, Grid, CircularProgress, Link } from '@material-ui/core'
 
 import WendysLogo from '../static/wendysLogoWhite.png'
 import QuestionMark from '../static/questionMark.png'
 import Burger from '../static/burger.png'
 import Carrot from '../static/carrot.png'
 
+import useStyles from './materialUI'
+
 
 export default function Wendys() {
 
-	// MATERIAL UI STYLES
-	const useStyles = makeStyles(theme => ({
-
-		root: {
-			display: 'flex',
-			flexDirection: 'column',
-			justifyContent: 'center',
-			alignItems: 'center',
-			margin: 20,
-			marginTop: 10
-		},
-
-		titleText: {
-			fontFamily: 'Amatic SC',
-			fontSize: 100, 
-			color: 'white',
-
-			[theme.breakpoints.down('md')]: {
-				fontSize: 80
-			},
-
-			[theme.breakpoints.down(376)]: {
-        		fontSize:75
-      		},
-		},
-
-		titleImage: {
-			width: 295, 
-			height: 'auto',
-
-			[theme.breakpoints.down('md')]: {
-				width: 260
-			},		
-			
-			[theme.breakpoints.down('xs')]: {
-				width: 200
-			},
-		},
-
-		contentContainer: {
-			padding: 10,
-			maxWidth: 630,
-			marginTop: 30,
-			textAlign: 'center',
-			border: '2px solid black',
-			borderRadius: 5,
-			color: 'white',
-			background: 'rgba(46, 49, 49, 0.5)',
-			minHeight: 420
-		},
-
-		fateScoreText: {
-			fontSize: 50,
-			fontFamily: 'Amatic SC',
-			fontWeight: 'bold'
-		},
-
-		fateScoreDivider: {
-			width: '95%', 
-			height: 2, 
-			background: 'white', 
-			marginTop: 5, 
-			marginBottom: 10
-		},
-
-		fateScoreContainer: {
-			margin: 5,
-			border: '2px solid white',
-			borderRadius: 5,
-			height: 40,
-			width: 100,
-			display: 'flex',
-			justifyContent: 'center',
-			alignItems: 'center',
-			background: 'rgba(0,0,0,0.6)'
-		},
-
-		fateMessage: {
-			marginTop: 25,
-			marginBottom: 20,
-			fontWeight: 'bold', 
-			fontFamily: 'Amatic SC',
-			fontSize: 65,
-
-			[theme.breakpoints.down(415)]: {
-				fontSize: 50
-			},
-
-			[theme.breakpoints.down(376)]: {
-				fontSize: 55
-			},
-		},
-
-		loading: {
-			marginTop: 30,
-			marginBottom: 20,
-			color: '#7FE5F0', 
-			fontWeight: 'bold', 
-			fontFamily: 'Amatic SC',
-			fontSize: 65,
-
-
-			[theme.breakpoints.down(415)]: {
-				fontSize: 55
-			},
-
-			[theme.breakpoints.down(376)]: {
-				fontSize: 40
-			},
-		},
-
-		submitButton: {
-			border: '2px solid white',
-			color: 'white', 
-			fontWeight: 'bold', 
-			fontFamily: 'Amatic SC',
-			fontSize: 40,
-			background: 'rgba(0,0,0,0.6)',
-			padding: 15,
-			marginTop: 10,
-			marginBottom: 15,
-
-			[theme.breakpoints.down(376)]: {
-        		fontSize: 30
-      		},
-		},
-
-		// aboutContainer : {
-		// 	display: 'flex',
-		// 	flexDirection: 'column',
-		// 	justifyContent: 'center',
-		// 	alignItems: 'center',
-		// 	padding: 15,
-		// 	marginBottom: 20,
-		// 	marginTop: -15
-		// },
-
-		scrollerButton:{
-			color: 'white', 
-			fontWeight: 'bold', 
-			fontFamily: 'Amatic SC',
-			fontSize: 40,
-			background: 'rgba(0,0,0,0.6)',
-			marginTop: 5,
-			marginBottom: 0,
-		},
-
-		scrollerButtonText: {
-			display: 'flex',
-			flexDirection: 'column',
-			justifyContent: 'center',
-			alignItems: 'center',
-			marginTop: -30,
-			fontSize: 40,
-			color: 'white', 
-
-
-			transition: 'color 100ms ease-in, font-size 100ms ease-in',
-
-			'&:hover': {
-				color: '#7FE5F0',
-				fontSize: 42,
-				transition: 'color 100ms ease-in, font-size 100ms ease-in',
-			}
-		},
-
-		scrollerIcon: {
-			color: 'white', 
-			margin: 0, 
-			padding: 0, 
-			marginTop: -10
-		},
-
-		scrollerIconBottom: {
-			color: 'white', 
-			margin: 0, 
-			padding: 0, 
-			marginBottom: 0
-		},
-
-		aboutContainer: {
-			color: 'white', 
-			fontWeight: 'bold', 
-			fontFamily: 'Amatic SC',
-			fontSize: 40,
-			background: 'rgba(0,0,0,0.6)',
-			padding: 15,
-			marginBottom: 20,
-			marginTop: 5
-		},
-
-		aboutText:{
-			textIndent: 50,
-			textAlign: 'center',
-			fontSize: 30,
-
-			[theme.breakpoints.down('md')]: {
-        fontSize: 25
-      },
-
-			[theme.breakpoints.down('xs')]: {
-        fontSize: 25
-      },
-		},
-
-		navBar: {
-			marginTop: 15,
-			display: 'flex',
-			justifyContent: 'center',
-			alignItems: 'center',
-			width: '100%',
-			height: 50, 
-			fontFamily: 'Amatic SC',
-			fontSize: 40,
-			color: 'white'
-		},
-
-		navBarItem: {
-			height: 50, 
-			fontFamily: 'Amatic SC',
-			fontSize: 40,
-			color: 'white',
-			transition: 'color 100ms ease-in, font-size 100ms ease-in',
-
-			'&:hover': {
-				color: '#7FE5F0',
-				fontSize: 45,
-				transition: 'color 100ms ease-in, font-size 100ms ease-in',
-			}
-		}
-
-
-	}))
-
+	// MATERIAL UI STYLESHEET
 	const classes = useStyles()
 
 	// INTERSECTION OBSERVER (About Section)
@@ -269,23 +38,11 @@ export default function Wendys() {
 
 			textObserver.observe(myContent)
 	}}, [])
-
-	// SCROLL FUNCTIONS
-	const scrollToAbout = () => {
-		var aboutSection = document.getElementById("aboutSection");
-		aboutSection.scrollIntoView({ behavior: 'smooth' });
-	}
-
-	const scrollToTop = () => {
-		var headerSection = document.getElementById("headerSection");
-		headerSection.scrollIntoView({ behavior: 'smooth', alignToTop: true });
-	}
 	
 	// FATE SCORES
 	const fate1 = useRef('')
 	const fate2 = useRef('')
 	const fate3 = useRef('')
-
 
 	// Indicates which fate we are currently loading
 	const [fateLoading, setFateLoading ] = useState('')
@@ -331,16 +88,27 @@ export default function Wendys() {
 			score: 3
 		},
 	]
- 
 
-	// FUNCTIONS
+	// FUNCTIONS //
+
+	// Scroll Functions
+	const scrollToAbout = () => {
+		var aboutSection = document.getElementById("aboutSection");
+		aboutSection.scrollIntoView({ behavior: 'smooth' });
+	}
+
+	const scrollToTop = () => {
+		var headerSection = document.getElementById("headerSection");
+		headerSection.scrollIntoView({ behavior: 'smooth', alignToTop: true });
+		}
+
 	// Retrieves our quantum generated numbers
 	const getQRN = async () => {
 
 		// This will clear out our past values
 		setFinalFate('')
 		currentDiceSides.current = null
-    	currentDiceWeight.current = null
+    currentDiceWeight.current = null
 		currentDiceResult.current = null
 		// console.log(currentDiceSides.current, currentDiceWeight.current, currentDiceResult.current);
 
@@ -790,32 +558,35 @@ export default function Wendys() {
 				className={classes.aboutText}
 				>
 					<p>
-						Eating at a Wendy’s fast food restaurant can either be the best or worst choice of your entire life.
-						But when you're hungry at 2AM and all respectable restaurants are closed, rash and detrimental decisions are prone to be made.
-						What if there was a way for the universe to answer the question of whether or not you should eat at a Wendy's?
-						Well now there is.
+						Eating at a Wendy’s fast food restaurant can either be 
+						the best or worst choice of your entire life. But when you're 
+						hungry at 2AM and all respectable restaurants are closed,
+						rash and detrimental decisions are prone to be made. What
+						if there was a way for the universe to answer the question 
+						of whether or not you should eat at a Wendy's? Well now there is.
 					</p>
 
 					<p>
-						ShouldIGoToWendys.help was created for the very purpose of solving this conundrum. 
-						Based off of the theory that
+						ShouldIGoToWendys.help was created for the very purpose of solving 
+						this conundrum. Based off of the theory that
 						<Link 
 							style={{marginLeft: 5, color: '#7FE5F0'}}
 							href='https://noosphere.princeton.edu/papers/pdf/GCP.Explore.pdf'
 						>
-						human consciousness is able to affect the outcome of random number generators
+						human consciousness is able to affect the outcome of random number
+						generators
 						</Link>,
 						this web app connects to the Quantum Random Number Generator at
-						Australian National University’s campus and gathers an array of data which we convert into
-						sets of dice. During the time we are gathering data, you should to close your eyes and
-						begin thinking of going to Wendy's.
+						Australian National University’s campus and gathers an array of data 
+						which we convert into sets of dice. During the time we are gathering
+						data, you should to close your eyes and begin thinking of going to Wendy's.
 					</p>
 
 					<p>
-						We will then perform 3 dice rolls, with each roll giving you a fate score for going to Wendy's. A positive
-						fate score is represented by a 🍔, while a negative fate score is represented by a 🥕.
-						These collective scores are then calculated to determine your final fate for 
-						going to Wendy's.
+						We will then perform 3 dice rolls, with each roll giving you a fate
+						score for going to Wendy's. A positive fate score is represented by 
+						a 🍔, while a negative fate score is represented by a 🥕. These collective 
+						scores are then calculated to determine your final fate for going to Wendy's.
 					</p>
 				</div>
 			</Grid>
