@@ -1,6 +1,6 @@
 # ShouldIGoToWendys.help
 
-[Visit Web App](https://hrstm.github.io/should-i-go-to-wendys/')
+[Visit Web App](https://hrstm.github.io/should-i-go-to-wendys/)
 
 ## About
 
